@@ -1,0 +1,30 @@
+server:
+  port: 8999
+  
+eureka:
+  instance:
+    hostname: localhost
+spring:
+  application:
+    name: skyx-api-gateway
+# URL`s Routing
+  cloud:
+    gateway:
+      routes:
+      - id: skyx-user-service
+        uri: //skyx-user-service
+        predicates:
+        - path=/user/**
+      - id: skyx-flights-management-service
+        uri: //skyx-flights-management-service
+        predicates:
+        - path=/flight/**
+      - id: skyx-flight-reservation-service
+        uri: //skyx-flight-reservation-service
+        predicates:
+        - path=/reservation/**
+          
+          
+        
+           
+           
