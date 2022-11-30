@@ -23,25 +23,25 @@ public class CardController {
 	@Autowired
 	CardRepo cardRepo;
 	
-	@PostMapping("/addcard/")
-	public ResponseEntity<String> createCard(@RequestBody AddCardDTO addCardDTO){
-		
-		User user = new User();
-		user.setId(addCardDTO.getUserId());
-		
-		Card card = new Card();
-		card.setUser(user);
-		card.setCardHolderName(addCardDTO.getCardHolderName());
-		card.setCardNumber(addCardDTO.getCardNumber());
-		card.setExpiryMonth(addCardDTO.getExpiryMonth());
-		card.setExpiryYear(addCardDTO.getExpiryYear());
-		card.setStatus(CARD_STATUS_ACTIVE);
-		Card savedCard = cardRepo.save(card);
-		
-		String cardNo = savedCard.getCardNumber().toString().substring(6, 10);
-		String msg= "Card Ending with "+cardNo+" Saved Successfully";
-		
-		return new ResponseEntity<String>(msg, HttpStatus.OK);
-	}	
+//	@PostMapping("/addcard/")
+//	public ResponseEntity<String> createCard(@RequestBody AddCardDTO addCardDTO){
+//		
+//		User user = new User();
+//		user.setId(addCardDTO.getUserId());
+//		
+//		Card card = new Card();
+//		card.setUser(user);
+//		card.setCardHolderName(addCardDTO.getCardHolderName());
+//		card.setCardNumber(addCardDTO.getCardNumber());
+//		card.setExpiryMonth(addCardDTO.getExpiryMonth());
+//		card.setExpiryYear(addCardDTO.getExpiryYear());
+//		card.setStatus(CARD_STATUS_ACTIVE);
+//		Card savedCard = cardRepo.save(card);
+//		
+//		String cardNo = savedCard.getCardNumber().toString().substring(6, 10);
+//		String msg= "Card Ending with "+cardNo+" Saved Successfully";
+//		
+//		return new ResponseEntity<String>(msg, HttpStatus.OK);
+//	}	
 	
 }
